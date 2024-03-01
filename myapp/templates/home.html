@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}xplore with roy{% endblock title %}
+
+{% block content %}
+{% comment %} {% for cat in cats %}
+{{cat.title}}
+{% endfor %} {% endcomment %}
+
+<div class="container mt-5">
+    {% for post in posts %}
+    <div class="row mx-auto">
+        <div class="col-mb-5 col-sm-7">
+            {% comment %} 'safe' is used to decode HTML code {% endcomment %}
+            {{post.content |truncatewords:60 | safe}}
+
+            <div class="container">
+                <a class="btn btn-primary btn-sm " href="{{post.url}}" role="button">read more</a>
+            </div>
+        </div><br><br>
+        <div class="col-mb-5 col-sm-4 offset-1">
+            <img src="/media/{{post.image}}" class="img-responsive"
+                style="width: 350px; height: 350px; margin-bottom: 50px;" alt="">
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

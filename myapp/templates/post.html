@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Posts{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row mx-auto mt-4">
+        <div class="col col-sm-8 ">
+            
+            <p>{{post.content | safe}} </p>
+        </div>
+        <div class="col col-sm-4 ">
+            <img src="/media/{{post.image}}" class="img-responsive"
+            style="width: 350px; height: 350px; margin-bottom: 50px;" alt="">
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}

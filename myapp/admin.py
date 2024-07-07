@@ -9,5 +9,5 @@ class CatagoryAdmin(admin.ModelAdmin):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title','image_tag','author','content','url','added_date','catagory']
+    list_display = ['title','image_tag','author','content','url','added_date','cat']
     search_fields = ['title']

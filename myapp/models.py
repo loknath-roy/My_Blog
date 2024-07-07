@@ -18,6 +18,7 @@ class Catagory(models.Model):
 
     def __str__(self) -> str:
         return self.title
+    
 
 # Post Model
 class Post(models.Model):
@@ -28,7 +29,7 @@ class Post(models.Model):
     url = models.CharField(max_length=100)
     image = models.ImageField(upload_to='post/',blank=True, null=True)
     added_date = models.DateTimeField(auto_now_add=True,null=True)
-    catagory = models.ForeignKey(Catagory,on_delete=models.CASCADE)
+    cat = models.ForeignKey(Catagory,on_delete=models.CASCADE)
 
     def image_tag(self):
         return format_html('<img src = "/media/{}" style = "width:40px; hight:40px;" />'.format(self.image))

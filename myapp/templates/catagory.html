@@ -3,7 +3,56 @@
 {% block title %}catagory{% endblock title %}
 
 {% block content %}
-{% lorem 1 b random %}
+
+
+<div class="row container mx-auto mt-4">
+    <div class="row">
+        <div class="col-mb-5 col-sm-10">
+            <div class="text-center rounded mb-3 " style=" background-color:#a0b8eb;">
+                <h1>{{cat.title}}</h1>
+            </div>
+            <!-- <b>{{cat.description}} </b> -->
+            
+            <img src="/media/{{cat.image}}" class="img-fluid rounded"
+                style="width: 100%; height: 450px; margin-bottom: 50px; object-fit:cover;" alt="">
+
+            <div class="collection">
+                {% for p in post %}
+                <h3><a href="/myblogs/{{p.url}}" class="collection-item text-decoration-none">{{p.title}} </a></h3>
+
+                {% empty %}
+                <h3>No post in this category</h3>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class="col-mb-5 col-sm-1 offset-1">
+            {% for cat in cats %}
+            <a class="text-decoration-none" href="/catagory/{{cat.url}}">
+                <div class="col-mb-5 col-sm-3 offset-1 ">
+                    <div class="card" style=" width:10rem;">
+
+                        <img src="/media/{{cat.image}}" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">{{cat.title}} </h4>
+
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
 
 
 {% endblock content %}

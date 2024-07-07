@@ -3,27 +3,30 @@
 {% block title %}xplore with roy{% endblock title %}
 
 {% block content %}
-{% comment %} {% for cat in cats %}
-{{cat.title}}
-{% endfor %} {% endcomment %}
 
-<div class="container mt-5">
-    {% for post in posts %}
-    <div class="row mx-auto">
-        <div class="col-mb-5 col-sm-7">
-            {% comment %} 'safe' is used to decode HTML code {% endcomment %}
-            {{post.content |truncatewords:60 | safe}}
+<body style="background-color:#E5EDF1;">
 
-            <div class="container">
-                <a class="btn btn-primary btn-sm " href="{{post.url}}" role="button">read more</a>
+    <div class="container-fluid mt-5 ">
+        {% for post in posts %}
+        <div class="row mx-auto mb-5">
+            <div class="col-mb-5 col-sm-8">
+                {% comment %} 'safe' is used to decode HTML code {% endcomment %}
+                {{post.content |truncatewords:70 | safe}}
+
+                <div class="container">
+                    <a class="btn" style="background-color: #BFA181;" href="/myblogs/{{post.url}}" role="button">read
+                        more</a>
+                </div>
+            </div><br><br>
+            <div class="col-mb-5 col-sm-3  offset-1">
+                <div class="rounded">
+                    <img src="/media/{{post.image}}" class="img-responsive rounded "
+                        style="width: 300px; height: 300px; object-fit: cover;" alt="">
+                </div>
             </div>
-        </div><br><br>
-        <div class="col-mb-5 col-sm-4 offset-1">
-            <img src="/media/{{post.image}}" class="img-responsive"
-                style="width: 350px; height: 350px; margin-bottom: 50px;" alt="">
         </div>
+        {% endfor %}
+        
     </div>
-    {% endfor %}
-</div>
-
+</body>
 {% endblock content %}

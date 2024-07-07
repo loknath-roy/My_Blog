@@ -1,4 +1,6 @@
-
-body {
-    background-color: rgb(82, 11, 214);
-  }
+*{
+  margin: 5px;
+  padding: 0px;
+  font-family: sans-serif;
+  background-color: rgb(219, 138, 138);
+}

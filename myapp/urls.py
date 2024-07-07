@@ -1,10 +1,10 @@
 from django.contrib import admin
 from django.urls import path
-from .views import home,Posts,Catagories
+from .views import Home,Posts,Catagories
 
 urlpatterns = [
-    path('',home,name='home'),
-    path('<slug:url>',Posts,name='post details'),
-    path('/catagory/<slug:url>',Catagories,name='all catagories')
+    path('',Home,name='home'),
+    path('myblogs/<slug:url>',Posts,name='post details'),
+    path('catagory/<slug:url>',Catagories,name='all catagories')
     
 ]
